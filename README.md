@@ -3,14 +3,15 @@
 一个用于练习 **远程仓库 / 分支 / Pull Request / 代码评审 / 合并** 完整流程的极简 demo 项目。
 A tiny demo project for practising the full remote-repo → branch → PR → review → merge workflow.
 
-当前版本只做一件事：**单位换算**（长度、质量、温度）。
+当前版本只做一件事：**单位换算**（长度、质量、体积、温度）。
 
 ## 支持的单位 / Supported units
 
 | 类别 | 单位 |
 | --- | --- |
-| length | `mm` `cm` `m` `km` `in` `ft` `mi` |
-| mass | `mg` `g` `kg` `t` `lb` `oz` |
+| length | `um` `mm` `cm` `m` `km` `in` `ft` `yd` `mi` `nmi` |
+| mass | `mg` `g` `kg` `t` `oz` `lb` `st` |
+| volume | `ml` `l` `m3` `gal` |
 | temp | `c` `f` `k` |
 
 ## 运行 / Usage
@@ -20,6 +21,7 @@ A tiny demo project for practising the full remote-repo → branch → PR → re
 python -m src.cli 3 km mi
 python -m src.cli 100 c f
 python -m src.cli 1 lb g
+python -m src.cli 1 gal l
 
 # 查看支持的单位 / list units
 python -m src.cli --list

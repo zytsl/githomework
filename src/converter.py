@@ -15,6 +15,7 @@ from __future__ import annotations
 #   length 基准: m ; mass 基准: g
 FACTORS: dict[str, dict[str, float]] = {
     "length": {
+        "um": 1e-6,
         "mm": 0.001,
         "cm": 0.01,
         "m": 1.0,
@@ -23,6 +24,7 @@ FACTORS: dict[str, dict[str, float]] = {
         "ft": 0.3048,
         "yd": 0.9144,
         "mi": 1609.344,
+        "nmi": 1852.0,
     },
     "mass": {
         "mg": 0.001,
@@ -31,8 +33,18 @@ FACTORS: dict[str, dict[str, float]] = {
         "t": 1_000_000.0,
         "lb": 453.59237,
         "oz": 28.349523125,
+        "st": 6350.29318,
+    },
+    "volume": {
+        "ml": 0.001,
+        "l": 1.0,
+        "m3": 1000.0,
+        "gal": 3.785411784,
     },
 }
+
+# 所有换算类别 / All conversion kinds, kept in display order.
+KINDS: tuple[str, ...] = ("length", "mass", "volume", "temp")
 
 
 class ConversionError(ValueError):
@@ -95,5 +107,5 @@ def convert(value: float, src: str, dst: str) -> float:
 
     raise ConversionError(
         f"无法换算 / cannot convert {src!r} -> {dst!r}；"
-        f"支持的单位见 / supported units: {units_of('length') + units_of('mass') + units_of('temp')}"
+        f"支持的单位见 / supported units: {[u for kind in KINDS for u in units_of(kind)]}"
     )
