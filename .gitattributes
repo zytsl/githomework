@@ -1,0 +1,7 @@
+# 统一换行符，避免 Windows / Linux 协作者之间产生整文件 diff
+# Normalize line endings so Windows/Linux collaborators don't get whole-file diffs.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pptx binary
