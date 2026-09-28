@@ -21,6 +21,7 @@ FACTORS: dict[str, dict[str, float]] = {
         "km": 1000.0,
         "in": 0.0254,
         "ft": 0.3048,
+        "yd": 0.9144,
         "mi": 1609.344,
     },
     "mass": {

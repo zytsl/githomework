@@ -26,6 +26,8 @@ def test_length() -> None:
     approx(convert(2500, "m", "km"), 2.5)
     approx(convert(1, "in", "cm"), 2.54)
     approx(convert(1, "mi", "km"), 1.609344)
+    approx(convert(1, "yd", "m"), 0.9144)
+    approx(convert(1760, "yd", "mi"), 1.0)
 
 
 def test_mass() -> None:
