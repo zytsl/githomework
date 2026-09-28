@@ -11,7 +11,7 @@ from __future__ import annotations
 import argparse
 import sys
 
-from .converter import ConversionError, convert, units_of
+from .converter import KINDS, ConversionError, convert, units_of
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -40,7 +40,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.list:
-        for kind in ("length", "mass", "temp"):
+        for kind in KINDS:
             print(f"{kind:6s}: {', '.join(units_of(kind))}")
         return 0
 

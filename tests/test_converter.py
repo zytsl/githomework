@@ -26,12 +26,23 @@ def test_length() -> None:
     approx(convert(2500, "m", "km"), 2.5)
     approx(convert(1, "in", "cm"), 2.54)
     approx(convert(1, "mi", "km"), 1.609344)
+    approx(convert(1, "yd", "m"), 0.9144)
+    approx(convert(1760, "yd", "mi"), 1.0)
+    approx(convert(1, "nmi", "m"), 1852.0)
+    approx(convert(1_000_000, "um", "m"), 1.0)
 
 
 def test_mass() -> None:
     approx(convert(1, "kg", "g"), 1000.0)
     approx(convert(1, "lb", "g"), 453.59237)
     approx(convert(16, "oz", "lb"), 1.0, tol=1e-9)
+    approx(convert(1, "st", "lb"), 14.0)
+
+
+def test_volume() -> None:
+    approx(convert(1, "l", "ml"), 1000.0)
+    approx(convert(1, "m3", "l"), 1000.0)
+    approx(convert(1, "gal", "l"), 3.785411784)
 
 
 def test_temperature() -> None:
